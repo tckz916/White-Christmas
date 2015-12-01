@@ -2,7 +2,7 @@
 <map proto="1.3.3">
 
   <!--
-  v-1.0.0 2015/**/** 初版
+  v-1.0.0 2015/12/02 初版
   -->
 
   <name>White Christmas</name>
@@ -17,8 +17,8 @@
 
   <!-- チーム -->
   <teams>
-    <team color="green" max="16">Green Team</team>
-    <team color="red" max="16">Red Team</team>
+    <team color="dark_green" max="16">Green Team</team>
+    <team color="dark_red" max="16">Red Team</team>
   </teams>
 
   <!-- キット -->
@@ -31,7 +31,7 @@
       <item slot="4" bind="true">iron_axe</item>
       <item slot="5" amount="32">wood</item>
       <item slot="6" damage="1" amount="32">stained_clay</item>
-      <item slot="7" amount="3">golden_apple</item>
+      <item slot="7" amount="2">golden_apple</item>
       <item slot="8" amount="64">pumpkin_pie</item>
       <item slot="9" amount="32">arrow</item>
       <potion duration="6" amplifier="100">damage_resistance</potion>
@@ -53,17 +53,29 @@
     </kit>
   </kits>
 
+  <!-- アイテム -->
+  <itemremove>
+    <item>leather_helmet</item>
+    <item>diamond_leggings</item>
+    <item>pumpkin_pie</item>
+  </itemremove>
+
+  <!-- キル報酬 -->
+  <killreward>
+    <item amount="1">golden_apple</item>
+  </killreward>
+
   <!-- スポーン -->
   <spawns>
-    <spawn team="green_spawn" yaw="180.0">
+    <spawn team="green" yaw="180" kit="green_kit">
       <block>0,24,73</block>
     </spawn>
 
-    <spawn team="red_spawn" yaw="0.0">
+    <spawn team="red" yaw="0" kit="red_kit">
       <block>0,24,-73</block>
     </spawn>
 
-    <default yaw="-90.0">
+    <default yaw="-90">
       <block>-75,2,0</block>
     </default>
   </spawns>
@@ -95,6 +107,13 @@
     <rectangle name="magenta_wool_room" min="-16,94" max="-36,108"/>
     <rectangle name="lime_wool_room" min="-16,-94" max="-36,-108"/>
     <rectangle name="cyan_wool_room" min="16,-94" max="36,-108"/>
+    <cuboid name="green_base_iron" min="5,16,66" max="-5,14,68"/>
+    <cuboid name="red_base_iron" min="-5,16,-66" max="5,14,-68"/>
+    <rectangle name="void" min="-36,-108" max="36,108"/>
+
+    <negative name="void_negative">
+      <region name="void"/>
+    </negative>
 
     <union name="bases">
       <region name="green_base"/>
@@ -108,6 +127,11 @@
       <block>-9,24,73</block>
       <block>9,24,73</block>
     </complement>
+
+    <union name="bases_iron">
+      <region name="green_base_iron"/>
+      <region name="red_base_iron"/>
+    </union>
 
     <union name="wool_rooms">
       <region name="pink_wool_room"/>
@@ -149,6 +173,10 @@
     <apply block-break="break_wool" block-place="deny-place" message="You can't modify the wool room!">
       <region name="wool_rooms"/>
     </apply>
+
+    <apply block="deny-blocks" message="You can't modify the void area!">
+      <region name="void_negative"/>
+    </apply>
   </regions>
 
   <!-- 台座 -->
@@ -169,6 +197,117 @@
       <block>9,24,-73</block>
     </wool>
   </wools>
+
+  <!-- ブロックドロップ -->
+  <blockdrops>
+    <rule>
+      <region>
+        <region name="bases_iron"/>
+      </region>
+
+      <filter>
+        <block>iron_block</block>
+      </filter>
+
+      <replacement>iron_block</replacement>
+
+      <drops>
+        <item>iron_block</item>
+      </drops>
+
+      <direct>true</direct>
+
+      <experience>0</experience>
+    </rule>
+
+    <rule>
+      <region>
+        <block>-26,23,106</block>
+      </region>
+
+      <filter>
+        <block>wool:2</block>
+      </filter>
+
+      <replacement>wool:2</replacement>
+
+      <drops>
+        <item amount="2" damage="2">wool</item>
+      </drops>
+
+      <direct>true</direct>
+
+      <wrongtool>true</wrongtool>
+
+      <experience>0</experience>
+    </rule>
+
+    <rule>
+      <region>
+        <block>26,23,106</block>
+      </region>
+
+      <filter>
+        <block>wool:6</block>
+      </filter>
+
+      <replacement>wool:6</replacement>
+
+      <drops>
+        <item amount="2" damage="6">wool</item>
+      </drops>
+
+      <direct>true</direct>
+
+      <wrongtool>true</wrongtool>
+
+      <experience>0</experience>
+    </rule>
+
+    <rule>
+      <region>
+        <block>26,23,-106</block>
+      </region>
+
+      <filter>
+        <block>wool:9</block>
+      </filter>
+
+      <replacement>wool:9</replacement>
+
+      <drops>
+        <item amount="2" damage="9">wool</item>
+      </drops>
+
+      <direct>true</direct>
+
+      <wrongtool>true</wrongtool>
+
+      <experience>0</experience>
+    </rule>
+
+    <rule>
+      <region>
+        <block>-26,23,-106</block>
+      </region>
+
+      <filter>
+        <block>wool:5</block>
+      </filter>
+
+      <replacement>wool:5</replacement>
+
+      <drops>
+        <item amount="2" damage="5">wool</item>
+      </drops>
+
+      <direct>true</direct>
+
+      <wrongtool>true</wrongtool>
+
+      <experience>0</experience>
+    </rule>
+  </blockdrops>
 
   <!-- 言語 -->
   <locales>
