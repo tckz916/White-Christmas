@@ -3,10 +3,11 @@
 
   <!--
   v-1.0.0 2015/12/02 初版
+  v-1.0.1 2015/12/02 XMLの一部修正, Tutorialの追加, その他設定の追加
   -->
 
   <name>White Christmas</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <objective>Capture the wool from the enemies wool rooms and return them to your victory monument.</objective>
 
   <!-- Map制作関係者 -->
@@ -67,11 +68,11 @@
 
   <!-- スポーン -->
   <spawns>
-    <spawn team="green" yaw="180" kit="green_kit">
+    <spawn team="dark_green" yaw="180" kit="green_kit">
       <block>0,24,73</block>
     </spawn>
 
-    <spawn team="red" yaw="0" kit="red_kit">
+    <spawn team="dark_red" yaw="0" kit="red_kit">
       <block>0,24,-73</block>
     </spawn>
 
@@ -83,11 +84,11 @@
   <!-- フィルター -->
   <filters>
     <filter name="only_green">
-      <team>green</team>
+      <team>dark_green</team>
     </filter>
 
     <filter name="only_red">
-      <team>red</team>
+      <team>dark_red</team>
     </filter>
 
     <filter name="break_iron">
@@ -320,5 +321,93 @@
       <string name="Capture the wool from the enemies wool rooms and return them to your victory monument." value="敵の羊毛部屋から羊毛を奪取し、台座に設置する。"/>
     </locale>
   </locales>
+
+  <!-- その他設定 -->
+  <maxbuildheight>60</maxbuildheight>
+  <autorespawn time="5s"/>
+  <difficulty>NORMAL</difficulty>
+
+  <!-- チュートリアル -->
+  <include src="tutorial.xml"/>
+  <tutorial>
+    <stage title="Capture The Wool">
+      <message>
+        <line>This map is a `d`lCapture The Wool`r Map.</line>
+        <line>[`5Objective`r] Capture the wool from the enemies wool rooms and return them to your victory monument.</line>
+      </message>
+      <message lang="ja_JP">
+        <line>このマップは `d`lCapture The Wool`r マップです。</line>
+        <line>[`5目標`r] 敵の羊毛部屋から羊毛を奪取し、台座に設置する。</line>
+      </message>
+    </stage>
+
+    <stage title="Green Team Base">
+      <title lang="ja_JP">グリーン チーム 拠点</title>
+      <message>
+        <line>[`5Base`r] This is `2Green Team`r Base.</line>
+      </message>
+      <message lang="ja_JP">
+        <line>[`5拠点`r] ここは `2グリーンチーム`r の拠点です。</line>
+      </message>
+      <teleport>
+        <point yaw="0" pitch="30">0.5,32,55.5</point>
+      </teleport>
+    </stage>
+
+    <stage title="Red Team Base">
+      <title lang="ja_JP">レッド チーム 拠点</title>
+      <message>
+        <line>[`5Base`r] This is `4Red Team`r Base.</line>
+      </message>
+      <message lang="ja_JP">
+        <line>[`5拠点`r] ここは `4レッド チーム`r の拠点です。</line>
+      </message>
+      <teleport>
+        <point yaw="-180" pitch="30">0.5,32,-55.5</point>
+      </teleport>
+    </stage>
+
+    <stage title="Green Team Wool Room">
+      <title lang="ja_JP">グリーン チーム 羊毛部屋</title>
+      <message>
+        <line>[`5Wool Room`r] This is `2Green Team`r Wool Room.</line>
+        <line>[`5Wool Room Information`r] `2Green Team`r should defend Own Team's wool rooms against enemy who are trying to steal the wool.</line>
+      </message>
+      <message lang="ja_JP">
+        <line>[`5羊毛部屋`r] ここは `2グリーン チーム`r の羊毛部屋です。</line>
+        <line>[`5羊毛部屋に関して`r] `グリーン チーム`r は羊毛を奪取しようとする敵の攻撃から自身のチームの羊毛部屋を防衛する必要があります。</line>
+      </message>
+      <teleport>
+        <point yaw="0" pitch="0">0.5,40,68.5</point>
+      </teleport>
+    </stage>
+
+    <stage title="Red Team Wool Room">
+      <title lang="ja_JP">レッド チーム 羊毛部屋</title>
+      <message>
+        <line>[`5Wool Room`r] This is `4Red Team`r Wool Room.</line>
+        <line>[`5Wool Room Information`r] `4Red Team`r should defend Own Team's wool rooms against enemy who are trying to steal the wool.</line>
+      </message>
+      <message lang="ja_JP">
+        <line>[`5羊毛部屋`r] ここは `4レッド チーム`r の羊毛部屋です。</line>
+        <line>[`5羊毛部屋に関して`r] `4レッド チーム`r は羊毛を奪取しようとする敵の攻撃から自身のチームの羊毛部屋を防衛する必要があります。</line>
+      </message>
+      <teleport>
+        <point yaw="-180" pitch="0">0.5,40,-68.5</point>
+      </teleport>
+    </stage>
+
+    <stage title="GLHF">
+      <message>
+        <line>Good Luck! Have Fun!</line>
+      </message>
+      <message lang="ja_JP">
+        <line>それではお楽しみください！</line>
+      </message>
+      <teleport>
+        <point yaw="-90" pitch="0">-74.5,1.0,0.5</point>
+      </teleport>
+    </stage>
+  </tutorial>
 
 </map>
