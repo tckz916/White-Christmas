@@ -5,10 +5,11 @@
   v-1.0.0 2015/12/02 - 初版
   v-1.0.1 2015/12/02 - XMLの一部修正, Tutorialの追加, その他設定の追加
   v-1.1.0 2015/12/03 - デザインの変更, マップに在った透明ブロックの削除, 初期装備のbindの削除, itemremoveの追加, 拠点裏の保護
+  v-1.1.1 2015/12/03 - itemremoveにwoodを追加, itemremoveからstained_clayの削除, kitのwoodをlogに変更
   -->
 
   <name>White Christmas</name>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <objective>Capture the wool from the enemies wool rooms and return them to your victory monument.</objective>
 
   <!-- Map制作関係者 -->
@@ -31,7 +32,7 @@
       <item slot="2">iron_spade</item>
       <item slot="3">iron_pickaxe</item>
       <item slot="4">iron_axe</item>
-      <item slot="5" amount="32">wood</item>
+      <item slot="5" amount="64">log</item>
       <item slot="6" damage="1" amount="32">stained_clay</item>
       <item slot="7" amount="2">golden_apple</item>
       <item slot="8" amount="64">pumpkin_pie</item>
@@ -62,7 +63,6 @@
     <item>pumpkin_pie</item>
     <item>golden_apple</item>
     <item>arrow</item>
-    <item>stained_clay</item>
     <item>iron_helmet</item>
     <item>iron_chestplate</item>
     <item>iron_leggings</item>
@@ -72,6 +72,7 @@
     <item>iron_spade</item>
     <item>iron_pickaxe</item>
     <item>iron_axe</item>
+    <item>wood</item>
   </itemremove>
 
   <!-- キル報酬 -->
