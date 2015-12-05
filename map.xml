@@ -6,10 +6,11 @@
   v-1.0.1 2015/12/02 - XMLの一部修正, Tutorialの追加, その他設定の追加
   v-1.1.0 2015/12/03 - デザインの変更, マップに在った透明ブロックの削除, 初期装備のbindの削除, itemremoveの追加, 拠点裏の保護
   v-1.1.1 2015/12/03 - itemremoveにwoodを追加, itemremoveからstained_clayの削除, kitのwoodをlogに変更
+  v-1.1.2 2015/12/05 - Tutorialの修正
   -->
 
   <name>White Christmas</name>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <objective>Capture the wool from the enemies wool rooms and return them to your victory monument.</objective>
 
   <!-- Map制作関係者 -->
@@ -397,7 +398,7 @@
       </message>
       <message lang="ja_JP">
         <line>[`5羊毛部屋`r] ここは `2グリーン チーム`r の羊毛部屋です。</line>
-        <line>[`5羊毛部屋に関して`r] `グリーン チーム`r は羊毛を奪取しようとする敵の攻撃から自身のチームの羊毛部屋を防衛する必要があります。</line>
+        <line>[`5羊毛部屋に関して`r] `2グリーン チーム`r は羊毛を奪取しようとする敵の攻撃から自身のチームの羊毛部屋を防衛する必要があります。</line>
       </message>
       <teleport>
         <point yaw="0" pitch="0">0.5,40,68.5</point>
