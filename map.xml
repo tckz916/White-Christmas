@@ -44,7 +44,7 @@
     </kit>
 
     <kit name="green_kit" parents="spawn_kit">
-      <helmet color="55FF55" damage="-3000" bind="true">leather helmet</helmet>
+      <helmet color="55FF55" damage="-3000" bind="true">leather_helmet</helmet>
       <chestplate bind="true">chainmail_chestplate</chestplate>
       <leggings color="55FF55" damage="-3000" bind="true">leather_leggings</leggings>
       <boots color="55FF55" damage="-3000" bind="true">leather_boots</boots>
