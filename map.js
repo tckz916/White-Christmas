@@ -17,9 +17,22 @@ match.on('end', function() {
   for (var i = 0; i < 3; i++) {
     var rank = i + 1;
     var code = 6 - i;
-    match.broadcast("                              `" + code + "`l" + rank + "st`r\n`2               " + playerArray[i]["name"] + "`r: `d`l" + playerArray[i]["kills"] + " kills");
+    match.broadcast("                              `" + code + "`l" + getRank(rank) + "st`r\n`2               " + playerArray[i]["name"] + "`r: `d`l" + playerArray[i]["kills"] + " kills");
   }
 });
+
+function getRank(rank) {
+    var no = (rank + '').substr(-1);
+    if (no == '1') {
+       return rank + 'st'
+    } else if (no == '2') {
+       return rank + 'nd';
+    } else if (no == '3') {
+       return rank + 'rd';
+    } else {
+       return rank + 'th';
+    }
+}
 
 function sort(ary, key, order) {
   var reverse = 1;
