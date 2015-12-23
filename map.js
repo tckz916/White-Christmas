@@ -14,10 +14,10 @@ match.on('end', function() {
   }
 
   sort(playerArray, "kills", "DESC");
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 5; i++) {
     var rank = i + 1;
     var code = 6 - i;
-    match.broadcast("                              `" + code + "`l" + getRank(rank) + "st`r\n`2               " + playerArray[i]["name"] + "`r: `d`l" + playerArray[i]["kills"] + " kills");
+    match.broadcast("`" + code + "`l" + getRank(rank) + " `r[ `2" + playerArray[i]["name"] + "`r: `d`l" + playerArray[i]["kills"] + " kills `r]");
   }
 });
 
